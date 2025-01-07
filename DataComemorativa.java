@@ -1,4 +1,4 @@
-public class DataComemorativa extends MinhaData
+public class DataComemorativa extends Data
 {
     public String nome;
     public boolean feriado;

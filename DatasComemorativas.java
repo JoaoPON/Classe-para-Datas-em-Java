@@ -1,10 +1,11 @@
 public class DatasComemorativas
 {
     public DataComemorativa datas[];
-    private int qTdDatas = 0;
+    private int qTdDatas;
     
-    public DatasComemorativas(int capacidade) {
+    DatasComemorativas(int capacidade) {
         datas = new DataComemorativa[capacidade];
+        qTdDatas = 0;
     }
     
     void adiciona(DataComemorativa data){
@@ -12,16 +13,13 @@ public class DatasComemorativas
             datas[qTdDatas] = data;
             qTdDatas++;
         } else {
-            System.out.println("Array cheio! Não é possível adicionar mais datas.");
+            System.out.println("Vetor cheio! Não é possível adicionar mais datas.");
         }
     }
     
     void remove(String nome) {
-        boolean encontrado = false;
-    
         for (int i = 0; i < qTdDatas; i++){
             if (datas[i].nome.equals(nome)){
-                encontrado = true;
     
                 for (int j = i; j < qTdDatas - 1; j++) {
                     datas[j] = datas[j + 1];
@@ -29,13 +27,10 @@ public class DatasComemorativas
     
                 datas[qTdDatas - 1] = null;
                 qTdDatas--;
-                break;
+                return;
             }
         }
-    
-        if (!encontrado) {
-            System.out.println("Data comemorativa com o nome '" + nome + "' não encontrada.");
-        }
+        System.out.println("Data comemorativa com o nome '" + nome + "' não encontrada.");
     }
     
     void listaDatas(){
